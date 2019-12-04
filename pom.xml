@@ -90,6 +90,24 @@
 	  		<artifactId>language-translator</artifactId>
 	  		<version>8.0.1</version>
 		</dependency>
+		
+		<dependency>
+		    <groupId>com.ibm.watson.developer_cloud</groupId>
+		    <artifactId>speech-to-text</artifactId>
+		    <version>4.2.1</version>
+  		</dependency>
+  
+	  <dependency>
+		<groupId>com.ibm.watson</groupId>
+		<artifactId>ibm-watson</artifactId>
+		<version>8.0.1</version>
+	  </dependency>
+	
+	  <dependency>
+		    <groupId>com.ibm.cloud</groupId>
+		    <artifactId>sdk-core</artifactId>
+		    <version>8.0.0</version>
+	  </dependency>
     </dependencies>
 
     <build>
