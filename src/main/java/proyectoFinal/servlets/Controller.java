@@ -28,7 +28,7 @@ import proyectoFinal.services.Dictator;
 /**
  * Servlet implementation class Controller
  */
-@WebServlet(urlPatterns = {"/listar", "/insertar", "/hablar"})
+@WebServlet(urlPatterns = {"/listar", "/insertar", "/hablar", "/parar"})
 public class Controller extends HttpServlet  {
 	private static final long serialVersionUID = 1L;
 
@@ -36,6 +36,7 @@ public class Controller extends HttpServlet  {
 	{
 		PrintWriter out = response.getWriter();
 		out.println("<html><head><meta charset=\"UTF-8\"></head><body>");
+		Dictator dict= new Dictator();
 		
 		CloudantPalabraStore store = new CloudantPalabraStore();
 		System.out.println(request.getServletPath());
@@ -73,22 +74,19 @@ public class Controller extends HttpServlet  {
 				}
 				break;
 			case "/hablar":
-				Palabra palabra_dictada = new Palabra();
+				//Palabra palabra_dictada = new Palabra();				
+				//String dictado=null;				
+				Dictator.convertToText();
+				//Dictator.convertToText();
 				
-				String dictado=null;
-				try {
-					dictado = Dictator.dictate();
-				} catch (LineUnavailableException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				} catch (InterruptedException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
 					
-				palabra_dictada.setName(dictado);
-				store.persist(palabra_dictada);
-			    out.println(String.format("Almacenada la palabra: %s", palabra_dictada.getName()));
+				//palabra_dictada.setName(dictado);
+				//store.persist(palabra_dictada);
+				//dict.closeConnection();
+			    //out.println(String.format("Almacenada la palabra: %s", palabra_dictada.getName()));
+				break;
+			case "/parar":
+				Dictator.closeMicro();
 		}
 		out.println("</html>");
 	}
