@@ -1,4 +1,4 @@
-package proyectoFinal.servlets;
+package com.ibm.ibmcloud.appid.liberty.sample;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;

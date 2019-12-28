@@ -1,18 +1,33 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Liberty project</title>
+    <title>Sample App</title>
+    <link rel='stylesheet' href='stylesheets/index.css'/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
 </head>
 <body>
-<h1>Proyecto Liberty</h1>
-<hr />
-<p>Listado de Opciones <b>CLOUDANT o Traducción</b>:</p>
-<ul>
-<li><a href="listar">Listar</a></li>
-<li>Introduzca la palabra a traducir <input type="text" name="palabra" id="text_word"> <button type="button"  onclick="location.href='insertar?palabra='+document.getElementById('text_word').value">Traducir</button></li>
-<li><a href="hablar">Dictar</a></li>
-<li><a href="parar">Parar</a>
-</ul>
+<div class="main-container">
+    <div class="logo">
+        <img class="logo-icon" src="images/app_id_icon.svg">
+    </div>
+    <div class="text-div">
+        Welcome to your<br/>App ID sample
+    </div>
+    <div id="login-button-div" class="flex-top">
+        <a href="/appidSample/ProtectedServlet">
+            <button class="button">Login</button>
+        </a>
+    </div>
+    <div class="bottom-container">
+        <div class="flex-bottom">
+            <img class="hint-icon" src="images/hint_icon.svg">
+        </div>
+        <div class="flex-bottom">
+            Hint: Replace this screen with<br>
+            content that is available<br>
+            before user is asked to login.
+        </div>
+    </div>
+</div>
 </body>
 </html>
