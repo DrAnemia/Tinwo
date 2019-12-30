@@ -46,7 +46,7 @@ public class Controller extends HttpServlet  {
 				if(store.getDB() == null)
 					  out.println("No hay DB");
 				else
-					out.println("Palabras en la BD Cloudant:<br />" + store.getAll());
+					out.println("Palabras en la BD uuu:<br />" + store.getAll());
 				break;
 				
 			case "/insertar":
@@ -74,16 +74,18 @@ public class Controller extends HttpServlet  {
 				}
 				break;
 			case "/hablar":
-				//Palabra palabra_dictada = new Palabra();				
-				//String dictado=null;				
-				Dictator.convertToText();
-				//Dictator.convertToText();
 				
+				Palabra palabra_dictada = new Palabra();				
+				String dictado=null;				
+				prueba=Dictator.convertToText();
+				//Dictator.convertToText();
+				System.out.println(prueba);
+				System.out.println("*");
 					
-				//palabra_dictada.setName(dictado);
-				//store.persist(palabra_dictada);
-				//dict.closeConnection();
-			    //out.println(String.format("Almacenada la palabra: %s", palabra_dictada.getName()));
+				palabra_dictada.setName(dictado);
+				store.persist(palabra_dictada);
+				dict.closeConnection();
+			    out.println(String.format("Almacenada la palabra: %s", palabra_dictada.getName()));
 				break;
 			case "/parar":
 				Dictator.closeMicro();

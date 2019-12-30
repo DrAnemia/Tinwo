@@ -1,4 +1,4 @@
-package com.ibm.ibmcloud.appid.liberty.sample;
+package proyectoFinal.servlets;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -30,6 +30,7 @@ import com.ibm.websphere.security.auth.WSSubject;
 /**
  * Servlet implementation class ProtectedServlet
  */
+
 
 public class ProtectedServlet extends HttpServlet {
 

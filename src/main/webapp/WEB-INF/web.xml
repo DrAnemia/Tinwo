@@ -4,14 +4,57 @@
 		 xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd"
 		 version="2.4">
 
-	<security-role>
+	
+	<servlet>
+		<servlet-name>Controller</servlet-name>
+		<servlet-class>proyectoFinal.servlets.Controller</servlet-class>
+	</servlet>
+	
+	<servlet>
+		<servlet-name>ProtectedServlet</servlet-name>
+		<servlet-class>proyectoFinal.servlets.ProtectedServlet</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>LogoutServlet</servlet-name>
+		<servlet-class>com.ibm.ibmcloud.appid.liberty.sample.LogoutServlet</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>Controller</servlet-name>
+		<url-pattern>/listar</url-pattern>	
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>Controller</servlet-name>
+		<url-pattern>/insertar</url-pattern>	
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>Controller</servlet-name>
+		<url-pattern>/hablar</url-pattern>	
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>Controller</servlet-name>
+		<url-pattern>/parar</url-pattern>	
+	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>ProtectedServlet</servlet-name>
+		<url-pattern>/ProtectedServlet</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>LogoutServlet</servlet-name>
+		<url-pattern>/logout</url-pattern>
+	</servlet-mapping>
+	
+		<security-role>
 		<role-name>myrole</role-name>
 	</security-role>
 
-	<security-constraint>
+	 <security-constraint>
 		<web-resource-collection>
-			<web-resource-name>ProtectedServlet</web-resource-name>
-			<url-pattern>/*</url-pattern>
+			<web-resource-name>SecureArea</web-resource-name>
+			<url-pattern></url-pattern>
 			<http-method>GET</http-method>
 			<http-method>PUT</http-method>
 			<http-method>POST</http-method>
@@ -24,7 +67,7 @@
 		<user-data-constraint>
 			<transport-guarantee>NONE</transport-guarantee>
 		</user-data-constraint>
-	</security-constraint>
+	</security-constraint> 
 
 	<welcome-file-list>
 		<welcome-file>index.html</welcome-file>

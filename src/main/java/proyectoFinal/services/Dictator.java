@@ -37,7 +37,8 @@ public class Dictator {
 		line.close();
 	}
 	
-	public static void convertToText(){
+	public static String convertToText(){
+		
 		Authenticator authenticator = new IamAuthenticator("5jTth1nrjH9gP-aHVOyUvhmW_VZc83Pf2sWBzgw2rGF8");
 		SpeechToText speechToText = new SpeechToText(authenticator);
 		speechToText.setServiceUrl("https://gateway-lon.watsonplatform.net/speech-to-text/api");
@@ -84,10 +85,12 @@ public class Dictator {
 		    
 		   
 		    String res=resultados.get(0).getAsJsonObject().getAsJsonArray("alternatives").get(0).getAsJsonObject().get("transcript").getAsString();
-		    System.out.println(res);	
+		    	
 		    
 		  }
-		});		
+		});	
+		 
+		 return res;
 
 	}
 }

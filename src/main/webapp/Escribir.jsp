@@ -18,6 +18,7 @@ http://www.templatemo.com/tm-505-stacked
         <link rel="stylesheet" href="css/bootstrap.min.css">
         <link rel="stylesheet" href="css/bootstrap-theme.min.css">
         <link rel="stylesheet" href="css/templatemo-style.css">
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 
         <script src="js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
     </head>
@@ -25,7 +26,8 @@ http://www.templatemo.com/tm-505-stacked
         <!--[if lt IE 8]>
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
-        <nav class="nav">
+        
+                <nav class="nav">
           <div class="burger">
             <div class="burger__patty"></div>
           </div>
@@ -35,49 +37,42 @@ http://www.templatemo.com/tm-505-stacked
               <a href="/GetStartedJava" class="nav__link c-blue"><img src="img/home-icon.png" alt=""></a>
             </li>
             <li class="nav__item">
-              <a href="listar" class="nav__link c-yellow scrolly"><img src="img/about-icon.png" alt=""></a>
+              <a href="#2" class="nav__link c-yellow scrolly"><img src="img/about-icon.png" alt=""></a>
             </li>
             <li class="nav__item">
-              <a href="Escribir.jsp" class="nav__link c-red"><img src="img/projects-icon.png" alt=""></a>
+              <a href="#3" class="nav__link c-red"><img src="img/projects-icon.png" alt=""></a>
             </li>
           </ul>
         </nav>
-
-        <section class="panel b-blue" id="1">
-          <article class="panel__wrapper">
-            <div class="panel__content">
-              <div class="container">
-                <div class="row">
-                  <div class="col-md-8 col-md-offset-2">
-                    <div class="home-content">
-                      <div class="home-heading">
-                        <h1><em>Tinwo</em> This.Is.Not.Word</h1>
-                      </div>
-                      <div class="row">
-                        <div class="col-md-12">
-                          <div class="home-box-content">
-                            <div class="left-text">
-                              <h4>New <em>File</h4>
-                              <p>Habla en español y nosotros nos encargamos de traducirlo!</p>
-                              <div class="primary-button">
-                                <a href="Escribir.jsp">Empezar</a>
-                              </div>
-                            </div>
-                            <div class="right-image">
-                              <img src="img/logo.png" alt="" style="border-radius:150px;">
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </article>
-        </section>
-              
-
+        
+        <section class="panel b-blue" id="1" >
+        	<article class="panel__wrapper"style="width: 80%">
+            	<div class="panel__content">
+            		<div>
+            			<img src="img/micro.png" alt="" style="margin: 3px" id="micro-icon">
+            			<img src="img/stop.png" alt="" style="margin: 3px" id="stop_recording_icon">
+            		</div>
+            		<br>
+              		<div>
+		         		<form id="form1" name="form1" action="">	
+							<textarea name="spellfield" id="spellfield" rows="20" style="width: 100%"  >
+								
+							</textarea>
+						</form>
+						<button class="w3-button w3-indigo" style="margin: 3px">Guardar</button>
+						
+					</div>
+				</div>
+			</article>
+		</section>
+        
+        
+        <script src="//tinymce.cachefly.net/4.0/tinymce.min.js"></script>
+		<script type="text/javascript">
+			tinymce.init({
+			    selector: "textarea"
+			 });
+		</script>
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')</script>
 
@@ -85,6 +80,7 @@ http://www.templatemo.com/tm-505-stacked
 
         <script src="js/plugins.js"></script>
         <script src="js/main.js"></script>
+        <script src="js/escribir.js"></script>
 
         <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
         <script>
@@ -95,5 +91,5 @@ http://www.templatemo.com/tm-505-stacked
             r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
             ga('create','UA-XXXXX-X','auto');ga('send','pageview');
         </script>
+        
     </body>
-</html>
