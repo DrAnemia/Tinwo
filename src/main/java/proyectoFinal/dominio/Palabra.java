@@ -1,3 +1,4 @@
+package proyectoFinal.dominio;
 /*
  * Copyright IBM Corp. 2017
  *
@@ -13,7 +14,8 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package proyectoFinal.dominio;
+
+
 
 /**
  * Represents a Visitor document stored in Cloudant.
@@ -23,9 +25,13 @@ public class Palabra {
 	private String _id;
 	private String _rev;
 	private String name = null;
+	private String filename= null;
+
 
 	public Palabra() {
 		this.name = "";
+		this.filename="";
+
 	}
 
 	/**
@@ -74,6 +80,11 @@ public class Palabra {
 	public String getName() {
 		return name;
 	}
+	
+	public String getFileName() {
+		return filename;
+	}
+
 
 	/**
 	 * Sets the name
@@ -85,10 +96,15 @@ public class Palabra {
 		this.name = visitorName;
 	}
 	
+	public void setFileName(String fileName) {
+		this.filename = fileName;
+	}
+
+	
 	@Override
 	public String toString()
 	{
-		return name;
+		return filename + name;
 	}
 
 }

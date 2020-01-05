@@ -36,6 +36,12 @@
 		<servlet-name>Controller</servlet-name>
 		<url-pattern>/parar</url-pattern>	
 	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>Controller</servlet-name>
+		<url-pattern>/traducir</url-pattern>	
+	</servlet-mapping>
+	
+	
 	
 	<servlet-mapping>
 		<servlet-name>ProtectedServlet</servlet-name>
@@ -54,7 +60,7 @@
 	 <security-constraint>
 		<web-resource-collection>
 			<web-resource-name>SecureArea</web-resource-name>
-			<url-pattern></url-pattern>
+			<url-pattern>/*</url-pattern>
 			<http-method>GET</http-method>
 			<http-method>PUT</http-method>
 			<http-method>POST</http-method>

@@ -40,29 +40,21 @@ http://www.templatemo.com/tm-505-stacked
               <a href="/GetStartedJava/Listar.jsp" class="nav__link c-yellow scrolly"><img src="img/about-icon.png" alt=""></a>
             </li>
             <li class="nav__item">
-              <a href="#3" class="nav__link c-red"><img src="img/projects-icon.png" alt=""></a>
+              <a href="/GetStartedJava/Escribir.jsp" class="nav__link c-red"><img src="img/projects-icon.png" alt=""></a>
             </li>
           </ul>
         </nav>
         
         <section class="panel b-blue" id="1" >
+        	
         	<article class="panel__wrapper"style="width: 80%">
+        		<div class="heading">
+        			<h1 style="color:white">Archivos guardados</h1>
+        		</div>        		
+        		<br>
             	<div class="panel__content">
-            		<div>
-            			<textarea id="filename" placeholder="Nombre del archivo" rows="1" style="width: 227px; height: 31px;"></textarea>
-            			<img src="img/micro.png" alt="" style="margin: 3px" id="micro-icon">
-            			<img src="img/stop.png" alt="" style="margin: 3px" id="stop_recording_icon">
-            		</div>
-            		<br>
-              		<div>
-		         		<form id="form1" name="form1" action="">	
-							<textarea name="word" id="wordarea" rows="20" style="width: 100%" placeholder="" >
-								
-							</textarea>
-						</form>
-						<button id="save-button" class="w3-button w3-indigo" style="margin: 3px">Guardar</button>
-						<button id="translate-button" class="w3-button w3-indigo" style="margin: 3px">Traducir</button>
-						
+              		<div id="link-container">   
+              		      		
 					</div>
 				</div>
 			</article>
@@ -78,7 +70,7 @@ http://www.templatemo.com/tm-505-stacked
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/1.3.8/FileSaver.js"></script>
         <script src="js/plugins.js"></script>
         <script src="js/main.js"></script>
-        <script src="js/escribir.js"></script>
+        <script src="js/listar.js"></script>
 
         <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
         <script>

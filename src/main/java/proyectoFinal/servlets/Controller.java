@@ -20,9 +20,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.sound.sampled.LineUnavailableException;
 
-import proyectoFinal.dao.CloudantPalabraStore;
+
 import proyectoFinal.dominio.Palabra;
 import proyectoFinal.services.Traductor;
+import proyectoFinal.dao.CloudantPalabraStore;
+
 import proyectoFinal.services.Dictator;
 
 /**
@@ -32,65 +34,75 @@ import proyectoFinal.services.Dictator;
 public class Controller extends HttpServlet  {
 	private static final long serialVersionUID = 1L;
 
+	
+	
+	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
 	{
-		PrintWriter out = response.getWriter();
-		out.println("<html><head><meta charset=\"UTF-8\"></head><body>");
-		Dictator dict= new Dictator();
-		
+		PrintWriter out = response.getWriter();		
 		CloudantPalabraStore store = new CloudantPalabraStore();
 		System.out.println(request.getServletPath());
 		switch(request.getServletPath())
 		{
 			case "/listar":
 				if(store.getDB() == null)
-					  out.println("No hay DB");
-				else
-					out.println("Palabras en la BD uuu:<br />" + store.getAll());
+					  System.out.println("No hay DB");
+				else {					
+					response.setContentType("text/plain");
+					response.getWriter().write(store.getAll().toString());
+					response.getWriter().close();
+					System.out.println("Palabras en la BD uuu:<br />" + store.getAll());
+				}
 				break;
 				
 			case "/insertar":
-				Palabra palabra = new Palabra();
-				
-				String parametro = request.getParameter("palabra");
+				Palabra palabra = new Palabra();				
+				String texto = request.getParameter("text_content");
+				String filename = request.getParameter("filename");
 								
-				if(parametro==null)
+				if(texto==null)
 				{
-					out.println("usage: /insertar?palabra=palabra_a_traducir");
+					System.out.println("Siempre se debe enviar algo");
 				}
 				else
 				{
 					if(store.getDB() == null) 
 					{
-						out.println(String.format("Palabra: %s", palabra));
+						System.out.println(String.format("Palabra: %s", palabra));
 					}
 					else
-					{
-						String traduccion= Traductor.translate(parametro, "es", "en", false);
-						palabra.setName(traduccion);
-						store.persist(palabra);
-					    out.println(String.format("Almacenada la palabra: %s", palabra.getName()));			    	  
+					{	
+						System.out.println(texto);
+						palabra.setName(texto+"$$");
+						palabra.setFileName(filename+"$%");
+						
+						store.persist(palabra);					    			    	  
 					}
 				}
 				break;
 			case "/hablar":
-				
-				Palabra palabra_dictada = new Palabra();				
-				String dictado=null;				
-				prueba=Dictator.convertToText();
-				//Dictator.convertToText();
-				System.out.println(prueba);
-				System.out.println("*");
-					
-				palabra_dictada.setName(dictado);
-				store.persist(palabra_dictada);
-				dict.closeConnection();
-			    out.println(String.format("Almacenada la palabra: %s", palabra_dictada.getName()));
+						
+				Dictator.convertToText();
+
 				break;
 			case "/parar":
 				Dictator.closeMicro();
+				break;
+			case "/traducir":
+				String content = request.getParameter("text_content");
+				String answer="";
+				System.out.println(content);
+				String[] sentences=content.split(",|\\.");
+				for (String sentence : sentences) {
+					String traduccion=Traductor.translate(sentence, "es", "en", false);
+					answer=answer + traduccion;					
+				}
+				response.setContentType("text/plain");
+				response.getWriter().write(answer);
+				response.getWriter().close();
+				break;
 		}
-		out.println("</html>");
+		
 	}
 
 	/**
